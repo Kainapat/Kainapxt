@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFrame</title>
+</head>
+
+<body>
+    <h2>Test HTML Iframes</h2>
+    <p>You can also use the CSS height and width properties to specify the size of the iframe:</p>
+
+    <iframe src="myinfo.html" height="400" width="800" title="Iframe Example"></iframe>
+    <iframe src="https://i.pinimg.com/564x/b2/63/26/b26326c9d30f8ea85d6a495f5f484005.jpg" height="320" width="500"
+        title="Iframe Example"></iframe><br>
+    <iframe src="https://i.pinimg.com/564x/79/f7/ff/79f7ff9b68c17831bda3fb64172d483b.jpg" style="border:none;"
+        height="400" width="570" title="Iframe Example"></iframe>
+    <canvas id="myCanvas" width="300" height="500" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML canvas tag.</canvas>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(300, 500);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(150, 250, 150, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.font = "30px Arial";
+        ctx.fillText("Hello World", 75, 250);
+    </script>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        Sorry, your browser does not support inline SVG.
+    </svg>
+
+</body>
+
+</html>
