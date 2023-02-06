@@ -18,3 +18,5 @@ def binarySearch(alist, item):
 
 testlist = [17, 20, 26, 31, 44, 54, 55, 65, 77, 93]
 print(binarySearch(testlist, 55))
+
+#Get simple quicksort program with input by python 
