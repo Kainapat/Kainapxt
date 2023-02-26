@@ -1,5 +1,6 @@
 class Node:
     def __init__(self, data):
+
         self.left = None
         self.right = None
         self.data = data
@@ -18,7 +19,7 @@ class Node:
                     self.right.insert(data)
         else:
             self.data = data
-    
+
     def PrintTree(self):
         if self.left:
             self.left.PrintTree()
@@ -26,6 +27,29 @@ class Node:
         if self.right:
             self.right.PrintTree()
 
+    def delete(self, data):
+        if data < self.data:
+            if self.left:
+                self.left = self.left.delete(data)
+            return self
+        elif data > self.data:
+            if self.right:
+                self.right = self.right.delete(data)
+            return self
+        else:
+            if not self.left and not self.right:
+                return None
+            if not self.left:
+                return self.right
+            if not self.right:
+                return self.left
+            min_right = self.right
+            while min_right.left:
+                min_right = min_right.left
+            self.data = min_right.data
+            self.right = self.right.delete(min_right.data)
+            return self        
+    
     def findval(self, lkpval):
         if lkpval < self.data:
             if self.left is None:
@@ -39,29 +63,23 @@ class Node:
             return str(self.data) + " is found"
     
     def preorder(self, root):
-        res = []
         if root:
-            res.append(root.data)
-            res = res + self.preorder(root.left)
-            res = res + self.preorder(root.right)
-        return res
+            print(root.data)
+            self.preorder(root.left)
+            self.preorder(root.right)
 
     def inorder(self, root):
-        res = []
         if root:
-            res = self.inorder(root.left)
-            res.append(root.data)
-            res = res + self.inorder(root.right)
-        return res
+            self.inorder(root.left)
+            print(root.data)
+            self.inorder(root.right)
 
     def postorder(self, root):
-        res = []
         if root:
-            res = self.postorder(root.left)
-            res = res + self.postorder(root.right)
-            res.append(root.data)
-        return res
-        
+            self.postorder(root.left)
+            self.postorder(root.right)
+            print(root.data)
+
 root = Node(10)
 root.insert(30)
 root.insert(40)
@@ -72,5 +90,18 @@ root.insert(5)
 root.PrintTree()
 print(root.findval(7))  
 print(root.findval(35))  
+print("Preorder Traversal:")
+root.preorder(root)
+print("Inorder Traversal:")
+root.inorder(root)
+print("Postorder Traversal:")
+root.postorder(root)
 
+print("Before deleting 35:")
+root.PrintTree()
+
+root = root.delete(35)
+
+print("After deleting 35:")
+root.PrintTree()
 
