@@ -64,11 +64,13 @@ G.add_edges_from([
 
 
 def search_nodes():
+    print("['BU', 'RMUTT', 'TU', 'NBU', 'PTU', 'MRU', 'RSU', 'RPU', 'VRU', 'EAU', 'MU', 'KMUTNB', 'CU', 'KMUTT', 'KMITL']")
     source = input("Enter beginning from: ")
     dest = input("Enter destination: ")
     shortest_path = nx.shortest_path(G, source=source, target=dest, weight='distance')
     print(f"Shortest path from {source} to {dest}: {shortest_path}")
     shortest_path_length = nx.shortest_path_length(G, source=source, target=dest, weight='distance')
+    shortest_path_length = ("%.2f"%(shortest_path_length))
     print(f"Shortest path length: {shortest_path_length}"" km")
 
 search_nodes()
