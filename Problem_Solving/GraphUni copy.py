@@ -25,7 +25,7 @@ nodes = list(node_colors.keys())
 colors = list(node_colors.values())
 node_color_map = [node_colors[node] for node in nodes]
 
-
+#G.add_nodes_from(['BU', 'RMUTT', 'TU', 'NBU', 'PTU', 'MRU', 'RSU', 'RPU', 'VRU', 'EAU', 'MU', 'KMUTNB', 'CU', 'KMUTT', 'KMITL'])
 
 G.add_edges_from([
     ('RMUTT', 'NBU', {'distance': 9.5}),
