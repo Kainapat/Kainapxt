@@ -1,5 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+import tkinter as tk
 
 
 G = nx.Graph()
@@ -78,3 +79,24 @@ nx.draw(G, pos, with_labels=True, node_color=node_color_map, node_size=1000)
 edge_labels = nx.get_edge_attributes(G, 'distance')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
 plt.show()
+
+window = tk.Tk()
+window.title("Shortest Path Finder")
+
+source_label = tk.Label(text="Source node:")
+source_label.pack()
+source_entry = tk.Entry()
+source_entry.pack()
+
+dest_label = tk.Label(text="Destination node:")
+dest_label.pack()
+dest_entry = tk.Entry()
+dest_entry.pack()
+
+search_button = tk.Button(text="Search", command=search_nodes)
+search_button.pack()
+
+result_label = tk.Label(text="")
+result_label.pack()
+
+window.mainloop()
