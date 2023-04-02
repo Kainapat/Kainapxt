@@ -4,7 +4,7 @@ import tkinter as tk
 
 G = nx.Graph()
 
-G.add_edges_from([    ('RMUTT', 'NBU', {'distance': 9.5}),
+G.add_edges_from([('RMUTT', 'NBU', {'distance': 9.5}),
     ('RMUTT', 'EAU', {'distance': 4.5}),
     ('RMUTT', 'VRU', {'distance': 35.9}),
     ('RMUTT', 'TU', {'distance': 16.8}),
@@ -69,7 +69,7 @@ def search_nodes():
 root = tk.Tk()
 root.title("Shortest Path Finder")
 
-canvas = tk.Canvas(root, width=1280, height=720)
+canvas = tk.Canvas(root, width=600, height=200)
 canvas.pack()
 
 frame = tk.Frame(root)
